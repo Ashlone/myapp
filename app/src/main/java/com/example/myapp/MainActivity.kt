@@ -1,5 +1,6 @@
 package com.example.myapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -20,6 +21,9 @@ class MainActivity : AppCompatActivity() {
         binding.submitBtn.setOnClickListener{
             val name=binding.name.text.toString().trim()
             val sport=binding.sport.text.toString().trim()
+
+            val intent= Intent(this,UserList ::class.java)
+            startActivity(intent)
 
             database= FirebaseDatabase.getInstance().getReference("Users")
             val User=User(name,sport)
